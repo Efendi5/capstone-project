@@ -1,10 +1,7 @@
-import { useState } from "react";
 import styled from "styled-components";
 import User from "../User";
 
-export default function Header() {
-  const [points1, setPoints1] = useState(0);
-  const [points2, setPoints2] = useState(0);
+export default function Header({ points1, points2 }) {
   return (
     <StyledDiv>
       <User name="Fendi" emoji="😁" points={points1} />

@@ -1,7 +1,12 @@
 import styled from "styled-components";
 import { questions } from "../QuizCard";
 
-export default function AnswerButtons() {
+export default function AnswerButtons({
+  points1,
+  points2,
+  setPoints1,
+  setPoints2,
+}) {
   const handleAnswerClick = (event, answer) => {
     event.preventDefault();
     if (answer === questions[0].correctAnswer) {

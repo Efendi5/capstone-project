@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useState } from "react";
-import Timeline from "../QuizCardPage/Timeline";
 
 export default function NextButton() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -8,12 +7,7 @@ export default function NextButton() {
   const handleNextClick = () => {
     setCurrentQuestion(currentQuestion + 1);
   };
-  return;
-  {
-    !timerRunning && (
-      <StyledButtonNext onClick={handleNextClick}>Weiter</StyledButtonNext>
-    );
-  }
+  return <StyledButtonNext onClick={handleNextClick}>Weiter</StyledButtonNext>;
 }
 
 export const StyledButtonNext = styled.button`
