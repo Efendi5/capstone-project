@@ -3,7 +3,7 @@ import QuizCard from "../QuizCard";
 import Timeline from "../Timeline";
 import AnswerButtons from "../AnswerButton";
 import Header from "../Header";
-import NextButton from "../../NextButton";
+import NextButton from "../NextButton";
 import { useState } from "react";
 
 export default function QuizForm() {
