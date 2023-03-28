@@ -1,17 +1,18 @@
 import styled from "styled-components";
 
-export const StyledPoints1 = styled.div`
-  font-size: 17px;
-  margin-top: 10px;
-  padding-top: 5px;
-  width: 60%;
-  color: #cfdfe6;
-`;
+export default function UserPoints({ points }) {
+  return (
+    <>
+      <StyledPoints>{points} Points</StyledPoints>
+    </>
+  );
+}
 
-export const StyledPoints2 = styled.div`
-  font-size: 17px;
-  margin-top: 10px;
-  padding-top: 5px;
-  width: 60%;
-  color: #cfdfe6;
+export const StyledPoints = styled.div`
+  margin-top: -5px;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  color: black;
+  margin-bottom: 1px;
 `;

@@ -1,13 +1,25 @@
-import { render, screen } from "@testing-library/react";
-import QuizCard from "../../../pages/QuizCard";
+import React from "react";
+import { render, screen, waitFor } from "@testing-library/react";
+import Timeline from ".";
+import { act } from "react-dom/test-utils";
 
-describe("StyledTimer Component", () => {
-  test("Timer should display 30 sec left", () => {
-    const timeLeft = 30;
+jest.useFakeTimers();
 
-    render(<QuizCard />);
+describe("Timeline", () => {
+  it("displays the correct time left", async () => {
+    render(<Timeline />);
+    const timerElement = screen.getByText(/s/);
+    expect(timerElement).toBeInTheDocument();
+    expect(timerElement.textContent).toBe("30s");
 
-    const timeLeftElement = screen.getByText(`${timeLeft}s`);
-    expect(timeLeftElement).toBeInTheDocument();
+    act(() => {
+      jest.advanceTimersByTime(5000);
+    });
+    await waitFor(() => expect(timerElement.textContent).toBe("25s"));
+
+    act(() => {
+      jest.advanceTimersByTime(25000);
+    });
+    await waitFor(() => expect(timerElement.textContent).toBe("0s"));
   });
 });
