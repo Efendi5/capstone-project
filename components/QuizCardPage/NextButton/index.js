@@ -11,7 +11,7 @@ export default function NextButton() {
 }
 
 export const StyledButtonNext = styled.button`
-  display: none;
+  display: flex;
   justify-content: center;
   width: 40%;
   text-align: center;
@@ -23,4 +23,5 @@ export const StyledButtonNext = styled.button`
   font-size: 16px;
   cursor: pointer;
   margin-top: 20px;
+  margin-bottom: 2px;
 `;

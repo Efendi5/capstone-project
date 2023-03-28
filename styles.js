@@ -9,5 +9,11 @@ export default createGlobalStyle`
   body {
     margin: 0;
     font-family: system-ui;
+    overflow: hidden;
+    background-color: #1c7ed6;
+    height:80%;
+
   }
+
+ 
 `;

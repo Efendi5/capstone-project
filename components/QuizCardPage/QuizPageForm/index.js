@@ -5,15 +5,22 @@ import AnswerButtons from "../AnswerButton";
 import Header from "../Header";
 import NextButton from "../NextButton";
 import { useState } from "react";
+import { questions } from "../../../DB/data";
 
 export default function QuizForm() {
   const [points1, setPoints1] = useState(0);
   const [points2, setPoints2] = useState(0);
+  const [questionIndex, setQuestionIndex] = useState(0);
+  const currentQuestion = questions[questionIndex];
+
   return (
     <>
       <Header points1={points1} points2={points2}></Header>
       <StyledForm>
-        <QuizCard></QuizCard>
+        <QuizCard
+          questionIndex={questionIndex}
+          currentQuestion={currentQuestion}
+        ></QuizCard>
         <Timeline></Timeline>
         <AnswerButtons
           points1={points1}
@@ -31,7 +38,5 @@ export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
   width: 100%;
-  background-color: #1c7ed6;
 `;

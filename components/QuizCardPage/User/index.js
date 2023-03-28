@@ -12,8 +12,6 @@ export default function User({ emoji, name, points }) {
 }
 
 export const StyledUser = styled.div`
-  display: flex;
-  justify-content: center;
   font-size: 35px;
   margin-top: 5px;
   padding-top: 5px;
@@ -21,12 +19,15 @@ export const StyledUser = styled.div`
 `;
 
 export const StyledName = styled.p`
-  display: flex;
-  justify-content: center;
   font-size: 18px;
   margin-top: 0;
   padding: 5px;
   color: white;
 `;
 
-export const StyledDiv = styled.div``;
+export const StyledDiv = styled.div`
+  display: block;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+`;

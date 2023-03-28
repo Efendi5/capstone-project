@@ -12,7 +12,6 @@ export default function Header({ points1, points2 }) {
 }
 
 export const StyledHeader = styled.h1`
-  display: flex;
   justify-content: center;
   align-items: center;
   font-size: 12px;
@@ -29,5 +28,4 @@ export const StyledDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1c7ed6;
 `;

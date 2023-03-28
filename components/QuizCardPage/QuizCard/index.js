@@ -1,24 +1,18 @@
 import styled from "styled-components";
-import { useState } from "react";
 
-export const questions = [
-  {
-    id: 1,
-    question: "What is the capital of France?",
-    answers: ["Paris", "Berlin", "Madrid", "London"],
-    correctAnswer: "Paris",
-  },
-];
-
-export default function QuizCard() {
-  const [questionsState, setQuestionsState] = useState(questions);
-  return <StyledCard>{questionsState[0].question}</StyledCard>;
+export default function QuizCard({ currentQuestion }) {
+  return (
+    <div>
+      <StyledCard>{currentQuestion.question}</StyledCard>
+    </div>
+  );
 }
 
 export const StyledCard = styled.div`
   display: flex;
   margin: 30px auto;
   width: 90%;
+  text-align: center;
   max-width: 400px;
   font-size: 18px;
   padding: 65px;
