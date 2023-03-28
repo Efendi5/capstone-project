@@ -1,14 +1,13 @@
 import styled from "styled-components";
 import { questions } from "../QuizCard";
-import { useState } from "react";
 
 export default function AnswerButtons() {
-  const [points, setPoints] = useState(0);
-
   const handleAnswerClick = (event, answer) => {
     event.preventDefault();
     if (answer === questions[0].correctAnswer) {
-      setPoints(points + 1);
+      setPoints1(points1 + 1);
+    } else {
+      setPoints2(points2 + 1);
     }
   };
 
@@ -16,7 +15,6 @@ export default function AnswerButtons() {
     <StyledDiv>
       {questions[0].answers.map((answer, id) => (
         <StyledButton
-          setPoints={setPoints}
           key={id}
           onClick={(event) => handleAnswerClick(event, answer)}
         >
