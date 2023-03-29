@@ -1,9 +1,9 @@
-import Heading from "../components/Heading";
+import QuizForm from "../components/QuizCardPage/QuizPageForm";
 
 export default function Home() {
   return (
     <main>
-      <Heading>🐠 Tropical Fish Capstone Template🐠</Heading>
+      <QuizForm />
     </main>
   );
 }
