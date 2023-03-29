@@ -2,12 +2,12 @@ import styled from "styled-components";
 import { useEffect } from "react";
 import { useState } from "react";
 
-export default function Timeline() {
+export default function Timeline({ isTimerPaused }) {
   const [timeLeft, setTimeLeft] = useState(30);
   const [timerRunning, setTimerRunning] = useState(true);
 
   useEffect(() => {
-    if (timeLeft > 0) {
+    if (timeLeft > 0 && !isTimerPaused) {
       const intervalId = setInterval(() => {
         setTimeLeft((prevTimeLeft) => prevTimeLeft - 1);
       }, 1000);
@@ -18,7 +18,8 @@ export default function Timeline() {
     } else {
       setTimerRunning(false);
     }
-  }, [timeLeft]);
+  }, [timeLeft, isTimerPaused]);
+
   return (
     <>
       <StyledTimer isRunningOut={timeLeft > 0 && timeLeft <= 10}>

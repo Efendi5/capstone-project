@@ -12,7 +12,7 @@ export default function User({ emoji, name, points }) {
 }
 
 export const StyledUser = styled.div`
-  font-size: 35px;
+  font-size: 30px;
   margin-top: 5px;
   padding-top: 5px;
   padding: 5px;
