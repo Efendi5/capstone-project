@@ -23,5 +23,5 @@ export const StyledButtonNext = styled.button`
   font-size: 16px;
   cursor: pointer;
   margin-top: 20px;
-  margin-bottom: 2px;
+  margin-bottom: 10px;
 `;

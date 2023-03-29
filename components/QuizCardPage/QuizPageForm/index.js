@@ -1,27 +1,23 @@
 import styled from "styled-components";
-import QuizCard from "../QuizCard";
-import Timeline from "../Timeline";
-import AnswerButtons from "../AnswerButton";
-import Header from "../Header";
-import NextButton from "../NextButton";
+import QuizCard from "../quizCard";
+import Timeline from "../timeline";
+import AnswerButtons from "../answerButton";
+import Header from "../header";
+import NextButton from "../nextButton";
 import { useState } from "react";
-import { questions } from "../../../DB/data";
+import { questions } from "../../../db/data";
 
 export default function QuizForm() {
   const [points1, setPoints1] = useState(0);
   const [points2, setPoints2] = useState(0);
-  const [questionIndex, setQuestionIndex] = useState(0);
-  const currentQuestion = questions[questionIndex];
+  const [question, setQuestion] = useState(questions[0].question);
 
   return (
     <>
       <Header points1={points1} points2={points2}></Header>
       <StyledForm>
-        <QuizCard
-          questionIndex={questionIndex}
-          currentQuestion={currentQuestion}
-        ></QuizCard>
-        <Timeline></Timeline>
+        <QuizCard questions={question}></QuizCard>
+        <Timeline />
         <AnswerButtons
           points1={points1}
           points2={points2}

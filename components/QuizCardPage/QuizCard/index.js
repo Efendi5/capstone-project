@@ -1,11 +1,7 @@
 import styled from "styled-components";
 
-export default function QuizCard({ currentQuestion }) {
-  return (
-    <div>
-      <StyledCard>{currentQuestion.question}</StyledCard>
-    </div>
-  );
+export default function QuizCard({ questions }) {
+  return <StyledCard>{questions}</StyledCard>;
 }
 
 export const StyledCard = styled.div`
