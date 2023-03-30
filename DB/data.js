@@ -16,4 +16,10 @@ export const questions = [
     ],
     correctAnswer: "Burj Khalifa",
   },
+  {
+    id: 3,
+    question: "Wie heißt die Hauptstadt von Deutschland?",
+    answers: ["Berlin", "München", "Hamburg", "Köln"],
+    correctAnswer: "Berlin",
+  },
 ];

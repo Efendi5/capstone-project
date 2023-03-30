@@ -1,10 +1,29 @@
 import styled from "styled-components";
-import { useState } from "react";
 
-export default function NextButton({ isDisabled }) {
+export default function NextButton({
+  isDisabled,
+  questionIndex,
+  setIsDisabled,
+  setIsTimerPaused,
+  setTimeLeft,
+  setQuestionIndex,
+  setSelectedAnswer,
+}) {
+  const handleNextClick = () => {
+    setQuestionIndex(questionIndex + 1);
+    setSelectedAnswer("");
+    setIsDisabled(false);
+    setIsTimerPaused(false);
+    setTimeLeft(15);
+  };
+
   return (
-    <StyledButtonNext block={isDisabled && "block"} type="button">
-      Weiter
+    <StyledButtonNext
+      block={isDisabled && "block"}
+      onClick={handleNextClick}
+      type="button"
+    >
+      weiter
     </StyledButtonNext>
   );
 }

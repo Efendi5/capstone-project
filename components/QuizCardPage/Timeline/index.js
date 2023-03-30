@@ -2,8 +2,12 @@ import styled from "styled-components";
 import { useEffect } from "react";
 import { useState } from "react";
 
-export default function Timeline({ isTimerPaused }) {
-  const [timeLeft, setTimeLeft] = useState(30);
+export default function Timeline({
+  isTimerPaused,
+  setIsDisabled,
+  timeLeft,
+  setTimeLeft,
+}) {
   const [timerRunning, setTimerRunning] = useState(true);
 
   useEffect(() => {
@@ -20,10 +24,19 @@ export default function Timeline({ isTimerPaused }) {
     }
   }, [timeLeft, isTimerPaused]);
 
+  useEffect(() => {
+    if (timeLeft === 0) {
+      setIsDisabled(true);
+    }
+  }, [timeLeft, setIsDisabled]);
+
   return (
     <>
-      <StyledTimer isRunningOut={timeLeft > 0 && timeLeft <= 10}>
-        {timeLeft}s
+      <StyledTimer
+        isRunningOut={timeLeft > 0 && timeLeft <= 10}
+        timeLeft={timeLeft}
+      >
+        {timeLeft === 0 ? "Time is up" : `${timeLeft}s`}
       </StyledTimer>
     </>
   );
@@ -41,5 +54,6 @@ export const StyledTimer = styled.div`
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 
-  background-color: ${(props) => (props.isRunningOut ? "red" : "green")};
+  background-color: ${(props) =>
+    props.timeLeft === 0 ? "red" : props.isRunningOut ? "red" : "green"};
 `;

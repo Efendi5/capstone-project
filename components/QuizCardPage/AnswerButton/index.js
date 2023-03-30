@@ -1,26 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { questions } from "../../../db/data";
 
 export default function AnswerButtons({
   points1,
-  points2,
   setPoints1,
-  setPoints2,
   selectedAnswer,
   setSelectedAnswer,
   isDisabled,
   setIsDisabled,
-  isTimerPaused,
   setIsTimerPaused,
+  timeLeft,
+  questionIndex,
 }) {
   const [answerIndex, setAnswerIndex] = useState(null);
+  const currentQuestion = questions[questionIndex];
 
   const handleAnswerClick = (index, answer) => {
     setAnswerIndex(index);
     setIsDisabled(true);
     setIsTimerPaused(true);
-    if (answer === questions[0].correctAnswer) {
+    if (answer === currentQuestion.correctAnswer) {
       setPoints1(points1 + 1);
       setSelectedAnswer("correct");
     } else {
@@ -28,9 +28,19 @@ export default function AnswerButtons({
     }
   };
 
+  const handleTimer = (index) => {
+    if (timeLeft === 0) {
+      setAnswerIndex(index);
+      setSelectedAnswer("correct");
+    }
+  };
+  useEffect(() => {
+    handleTimer(0);
+  }, [timeLeft]);
+
   return (
     <StyledDiv>
-      {questions[0].answers.map((answer, index) => (
+      {currentQuestion.answers.map((answer, index) => (
         <StyledButton
           disabled={isDisabled}
           type="button"

@@ -1,9 +1,14 @@
 import styled from "styled-components";
 
 export default function UserPoints({ points }) {
+  const pointString =
+    points === 1 ? "point" : points === 0 || points > 1 ? "points" : "point";
+
   return (
     <>
-      <StyledPoints>{points} Points</StyledPoints>
+      <StyledPoints>
+        {points} {pointString}
+      </StyledPoints>
     </>
   );
 }
