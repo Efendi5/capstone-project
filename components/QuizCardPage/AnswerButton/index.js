@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { questions } from "../../../db/data";
+import { questions } from "../../../DB/data";
 
 export default function AnswerButtons({
   points1,

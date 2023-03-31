@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import QuizCard from "../quizCard";
-import Timeline from "../timeline";
-import AnswerButtons from "../answerButton";
-import Header from "../header";
-import NextButton from "../nextButton";
+import QuizCard from "../QuizCard";
+import Timeline from "../Timeline";
+import AnswerButtons from "../AnswerButton";
+import Header from "../Header";
+import NextButton from "../NextButton";
 import { useState } from "react";
-import { questions } from "../../../db/data";
+import { questions } from "../../../DB/data";
 
 export default function QuizForm() {
   const [points1, setPoints1] = useState(0);
