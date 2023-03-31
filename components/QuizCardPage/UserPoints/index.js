@@ -7,14 +7,16 @@ export default function UserPoints({ points }) {
   return (
     <>
       <StyledPoints>
-        {points} {pointString}
+        <strong>
+          {points} {pointString}
+        </strong>
       </StyledPoints>
     </>
   );
 }
 
 export const StyledPoints = styled.div`
-  margin-top: -5px;
+  margin-top: -20px;
   font-size: 16px;
   color: black;
   margin-bottom: 1px;

@@ -11,10 +11,10 @@ export default function AnswerButtons({
   setIsDisabled,
   setIsTimerPaused,
   timeLeft,
-  questionIndex,
+  index,
 }) {
   const [answerIndex, setAnswerIndex] = useState(null);
-  const currentQuestion = questions[questionIndex];
+  const currentQuestion = questions[index];
 
   const handleAnswerClick = (index, answer) => {
     setAnswerIndex(index);

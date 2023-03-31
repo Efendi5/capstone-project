@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Timeline({
   isTimerPaused,
@@ -36,7 +35,7 @@ export default function Timeline({
         isRunningOut={timeLeft > 0 && timeLeft <= 10}
         timeLeft={timeLeft}
       >
-        {timeLeft === 0 ? "Time is up" : `${timeLeft}s`}
+        {timeLeft === 0 ? <strong>!!! Time is up !!!</strong> : `${timeLeft}s`}
       </StyledTimer>
     </>
   );

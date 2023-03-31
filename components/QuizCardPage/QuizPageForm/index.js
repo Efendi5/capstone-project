@@ -13,11 +13,9 @@ export default function QuizForm() {
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
   const [isTimerPaused, setIsTimerPaused] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(15);
-  const [questionIndex, setQuestionIndex] = useState(0);
-
-  const question = questions[questionIndex].question;
-  const answers = questions[questionIndex].answers;
+  const [timeLeft, setTimeLeft] = useState(20);
+  const [index, setIndex] = useState(0);
+  const question = questions[index].question;
 
   return (
     <>
@@ -39,14 +37,13 @@ export default function QuizForm() {
           setIsDisabled={setIsDisabled}
           setIsTimerPaused={setIsTimerPaused}
           timeLeft={timeLeft}
-          answers={answers}
-          questionIndex={questionIndex}
+          index={index}
         ></AnswerButtons>
         <NextButton
           isDisabled={isDisabled}
           setSelectedAnswer={setSelectedAnswer}
-          questionIndex={questionIndex}
-          setQuestionIndex={setQuestionIndex}
+          index={index}
+          setIndex={setIndex}
           setIsDisabled={setIsDisabled}
           setIsTimerPaused={setIsTimerPaused}
           setTimeLeft={setTimeLeft}

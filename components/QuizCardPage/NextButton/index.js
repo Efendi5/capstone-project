@@ -2,15 +2,15 @@ import styled from "styled-components";
 
 export default function NextButton({
   isDisabled,
-  questionIndex,
+  index,
   setIsDisabled,
   setIsTimerPaused,
   setTimeLeft,
-  setQuestionIndex,
+  setIndex,
   setSelectedAnswer,
 }) {
   const handleNextClick = () => {
-    setQuestionIndex(questionIndex + 1);
+    setIndex(index + 1);
     setSelectedAnswer("");
     setIsDisabled(false);
     setIsTimerPaused(false);
@@ -31,10 +31,10 @@ export default function NextButton({
 export const StyledButtonNext = styled.button`
   display: ${(props) => props.block || "none"};
   justify-content: center;
-  width: 40%;
+  width: 35%;
   text-align: center;
   max-width: 200px;
-  padding: 15px;
+  padding: 10px;
   background-color: green;
   border-radius: 20px;
   color: white;

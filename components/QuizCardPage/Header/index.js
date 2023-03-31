@@ -5,7 +5,9 @@ export default function Header({ points1, points2 }) {
   return (
     <StyledDiv>
       <User name="Fendi" aria-label="Smiley" emoji="😁" points={points1} />
-      <StyledHeader>Battle Quiz</StyledHeader>
+      <StyledHeader>
+        <strong>Battle Quiz</strong>
+      </StyledHeader>
       <User name="LOLO" aria-label="Smiley" emoji="😎" points={points2} />
     </StyledDiv>
   );

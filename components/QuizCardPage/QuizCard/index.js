@@ -6,11 +6,12 @@ export default function QuizCard({ questions }) {
 
 export const StyledCard = styled.div`
   display: flex;
-  margin: 30px auto;
+  margin-bottom: 20px;
+  margin-top: 30px;
   width: 90%;
   text-align: center;
   max-width: 400px;
-  font-size: 18px;
+  font-size: 20px;
   padding: 55px;
   background-color: #cfdfe6;
   border-radius: 20px;

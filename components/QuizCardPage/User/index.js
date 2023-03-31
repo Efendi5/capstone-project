@@ -5,7 +5,9 @@ export default function User({ emoji, name, points }) {
   return (
     <StyledDiv>
       <StyledUser>{emoji}</StyledUser>
-      <StyledName>{name}</StyledName>
+      <strong>
+        <StyledName>{name}</StyledName>
+      </strong>
       <UserPoints points={points} />
     </StyledDiv>
   );
