@@ -48,7 +48,7 @@ export default function AnswerButtons({
           onClick={() => handleAnswerClick(index, answer)}
           className={answerIndex === index && selectedAnswer}
         >
-          {answer}
+          <strong>{answer}</strong>
         </StyledButton>
       ))}
     </StyledDiv>
