@@ -40,17 +40,51 @@ export default function AnswerButtons({
 
   return (
     <StyledDiv>
-      {currentQuestion.answers.map((answer, index) => (
-        <StyledButton
-          disabled={isDisabled}
-          type="button"
-          key={answer}
-          onClick={() => handleAnswerClick(index, answer)}
-          className={answerIndex === index && selectedAnswer}
-        >
-          <strong>{answer}</strong>
-        </StyledButton>
-      ))}
+      {currentQuestion.answers.map((answer, index) => {
+        const isCorrectAnswer = answer === currentQuestion.correctAnswer;
+        const answerStyle = answerIndex === index && selectedAnswer;
+        if (selectedAnswer === "correct" && isCorrectAnswer) {
+          return (
+            <StyledButton
+              type="button"
+              key={answer}
+              onClick={() => handleAnswerClick(index, answer)}
+              className={`${answerStyle} correct`}
+            >
+              <strong>{answer}</strong>
+            </StyledButton>
+          );
+        } else if (selectedAnswer === "incorrect" && isCorrectAnswer) {
+          return (
+            <StyledButton type="button" key={answer} className="correct">
+              <strong>{answer}</strong>
+            </StyledButton>
+          );
+        } else if (selectedAnswer === "incorrect" && answerIndex === index) {
+          return (
+            <StyledButton
+              type="button"
+              key={answer}
+              onClick={() => handleAnswerClick(index, answer)}
+              className={`${answerStyle} incorrect`}
+            >
+              <strong>{answer}</strong>
+            </StyledButton>
+          );
+        } else {
+          return (
+            <StyledButton
+              disabled={isDisabled}
+              type="button"
+              key={answer}
+              onClick={() => handleAnswerClick(index, answer)}
+              className={answerStyle}
+            >
+              <strong>{answer}</strong>
+            </StyledButton>
+          );
+        }
+      })}
     </StyledDiv>
   );
 }
