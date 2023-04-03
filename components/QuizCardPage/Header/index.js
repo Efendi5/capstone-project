@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import User from "../user";
+import User from "../User";
 
 export default function Header({ points1, points2 }) {
   return (

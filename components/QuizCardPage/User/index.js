@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import UserPoints from "../userPoints";
+import UserPoints from "../UserPoints";
 
 export default function User({ emoji, name, points }) {
   return (
