@@ -1,25 +1,52 @@
 import styled from "styled-components";
 import UserPoints from "../../QuizCardPage/UserPoints";
-import AnswerButtons from "../../QuizCardPage/AnswerButton";
-import QuizForm from "../../QuizCardPage/QuizForm";
+import { useState, useEffect } from "react";
 
-export default function Result({ points }) {
+export default function Result({ points, currentRound, onPointsUpdate }) {
+  const [newPoints, setNewPoints] = useState(points);
+
+  const handlePointsChange = (event) => {
+    const updatedPoints = [...newPoints];
+    updatedPoints[event.target.id] = parseInt(event.target.value);
+    setNewPoints(updatedPoints);
+  };
+
+  useEffect(() => {
+    onPointsUpdate(newPoints);
+  }, [newPoints]);
+
   return (
     <StyledDiv>
       <Row>
-        <UserPoints points={points} />
-        <RoundNumber>1</RoundNumber>
-        <UserPoints points={points} />
+        <UserPoints
+          points={newPoints[0]}
+          onChange={handlePointsChange}
+          id="0"
+        />
+        <RoundNumber>{currentRound}</RoundNumber>
+        <UserPoints
+          points={newPoints[1]}
+          onChange={handlePointsChange}
+          id="1"
+        />
       </Row>
       <Row>
-        <UserPoints points={points} />
-        <RoundNumber>2</RoundNumber>
-        <UserPoints points={points} />
+        <UserPoints
+          points={newPoints[1]}
+          onChange={handlePointsChange}
+          id="1"
+        />
+        <RoundNumber>{currentRound + 1}</RoundNumber>
+        <UserPoints
+          points={newPoints[2]}
+          onChange={handlePointsChange}
+          id="2"
+        />
       </Row>
       <Row>
-        <UserPoints points={points} />
-        <RoundNumber>3</RoundNumber>
-        <UserPoints points={points} />
+        <UserPoints points={null} />
+        <RoundNumber>{currentRound + 2}</RoundNumber>
+        <UserPoints points={null} />
       </Row>
     </StyledDiv>
   );

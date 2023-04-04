@@ -4,13 +4,18 @@ import styled from "styled-components";
 import Result from "../../components/ResultListPage/Result";
 import PlayAgainButton from "../../components/ResultListPage/PlayAgainButton";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
-export default function ResultList() {
+export default function ResultList({ handlePlayAgainClick }) {
   const router = useRouter();
-  const {
-    query: { points1 },
-  } = router;
-  console.log(points1);
+  const [points, setPoints] = useState([0, 0, 0]);
+
+  const handlePointsUpdate = (newPoints) => {
+    setPoints(newPoints);
+  };
+
+  const points1 = router.query.points1 ? parseInt(router.query.points1) : null;
+
   return (
     <StyledForm>
       <MainMenu />
@@ -18,8 +23,18 @@ export default function ResultList() {
         <strong>Ergebnis</strong>
       </StyledParagraph>
       <Header />
-      <Result />
-      <PlayAgainButton />
+      {points1 !== null && (
+        <Result
+          points={[points1, 0, 0]}
+          currentRound={1}
+          onPointsUpdate={(points) => handlePointsUpdate(points, 1)}
+        />
+      )}
+      <PlayAgainButton
+        onklick={handlePlayAgainClick}
+        setPoints={setPoints}
+        points={points}
+      />
     </StyledForm>
   );
 }

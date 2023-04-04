@@ -1,14 +1,16 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
-export default function PlayAgainButton() {
+export default function PlayAgainButton({ setPoints, points }) {
   const { push } = useRouter();
-  const handleNextClick = () => {
-    push("http://localhost:3000/");
+
+  const handlePlayAgainClick = () => {
+    setPoints([points[0], 0, 0]);
+    push("/");
   };
 
   return (
-    <StyledButtonPlayAgain onClick={handleNextClick} type="button">
+    <StyledButtonPlayAgain onClick={handlePlayAgainClick} type="button">
       Spielen
     </StyledButtonPlayAgain>
   );
