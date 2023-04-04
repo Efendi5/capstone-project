@@ -1,10 +1,16 @@
-import Header from "../components/ResultListPage/Header";
-import MainMenu from "../components/ResultListPage/MainMenu";
+import Header from "../../components/ResultListPage/Header";
+import MainMenu from "../../components/ResultListPage/MainMenu";
 import styled from "styled-components";
-import Result from "../components/ResultListPage/Result";
-import PlayAgainButton from "../components/ResultListPage/PlayAgainButton";
+import Result from "../../components/ResultListPage/Result";
+import PlayAgainButton from "../../components/ResultListPage/PlayAgainButton";
+import { useRouter } from "next/router";
 
 export default function ResultList() {
+  const router = useRouter();
+  const {
+    query: { points1 },
+  } = router;
+  console.log(points1);
   return (
     <StyledForm>
       <MainMenu />

@@ -12,20 +12,25 @@ export default function NextButton({
   setClickCounter,
   clickCounter,
   points1,
+  currentQuestion,
 }) {
-  const { push } = useRouter();
+  const router = useRouter();
+  const { query } = router;
 
   const handleNextClick = () => {
-    setIndex(index + 1);
+    if (index <= 1) {
+      setIndex(index + 1);
+    }
     setSelectedAnswer("");
     setIsDisabled(false);
     setIsTimerPaused(false);
     setTimeLeft(15);
     setClickCounter(clickCounter + 1);
-    if (clickCounter === 2) {
+
+    if (currentQuestion && clickCounter === 2) {
       setClickCounter(0);
-      push({
-        pathname: "/resultList",
+      router.push({
+        pathname: "/ResultList",
         query: { points1 },
       });
     }
