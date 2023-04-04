@@ -15,6 +15,7 @@ export default function QuizForm() {
   const [isTimerPaused, setIsTimerPaused] = useState(false);
   const [timeLeft, setTimeLeft] = useState(20);
   const [index, setIndex] = useState(0);
+  const [clickCounter, setClickCounter] = useState(0);
   const question = questions[index].question;
 
   return (
@@ -47,6 +48,10 @@ export default function QuizForm() {
           setIsDisabled={setIsDisabled}
           setIsTimerPaused={setIsTimerPaused}
           setTimeLeft={setTimeLeft}
+          setClickCounter={setClickCounter}
+          clickCounter={clickCounter}
+          points1={points1}
+          setPoints1={setPoints1}
         ></NextButton>
       </StyledForm>
     </>
