@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
-export default function PlayAgainButton() {
+export default function PlayAgainButton({}) {
   const { push } = useRouter();
 
   const handlePlayAgainClick = () => {

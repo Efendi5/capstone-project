@@ -15,27 +15,38 @@ export default function AnswerButtons({
   currentQuestion,
 }) {
   const [answerIndex, setAnswerIndex] = useState(null);
+  const [isAnswered, setIsAnswered] = useState(false);
 
   const handleAnswerClick = (index, answer) => {
+    if (isDisabled) {
+      return;
+    }
+
     setAnswerIndex(index);
     setIsDisabled(true);
     setIsTimerPaused(true);
+
     if (answer === currentQuestion.correctAnswer) {
       setPoints1(points1 + 1);
+      setIsAnswered(true);
       setSelectedAnswer("correct");
     } else {
       setSelectedAnswer("incorrect");
     }
   };
 
-  const handleTimer = (index) => {
+  const handleTimer = () => {
+    const correctAnswerIndex = currentQuestion.answers.indexOf(
+      currentQuestion.correctAnswer
+    );
     if (timeLeft === 0) {
-      setAnswerIndex(index);
+      setAnswerIndex(correctAnswerIndex);
       setSelectedAnswer("correct");
     }
   };
+
   useEffect(() => {
-    handleTimer(0);
+    handleTimer();
   }, [timeLeft]);
 
   return (

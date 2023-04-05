@@ -1,24 +1,29 @@
 import styled from "styled-components";
 import UserPoints from "../../QuizCardPage/UserPoints";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function Result({ points, currentRound }) {
+  const [currentPoints, setCurrentPoints] = useState(points);
+
+  function handleNewPoints(newPoints) {
+    setCurrentPoints(currentPoints + newPoints);
+  }
   return (
     <StyledDiv>
       <Row>
-        <UserPoints points={points} />
+        <UserPoints points={currentPoints} />
         <RoundNumber>{currentRound}</RoundNumber>
-        <UserPoints points={points} />
+        <UserPoints points={currentPoints} />
       </Row>
       <Row>
-        <UserPoints points={points} />
+        <UserPoints points={currentPoints} />
         <RoundNumber>{currentRound + 1}</RoundNumber>
-        <UserPoints points={points} />
+        <UserPoints points={currentPoints} />
       </Row>
       <Row>
-        <UserPoints points={points} />
+        <UserPoints points={currentPoints} />
         <RoundNumber>{currentRound + 2}</RoundNumber>
-        <UserPoints points={points} />
+        <UserPoints points={currentPoints} />
       </Row>
     </StyledDiv>
   );

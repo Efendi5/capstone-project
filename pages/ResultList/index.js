@@ -8,6 +8,7 @@ import { useState } from "react";
 
 export default function ResultList({ handlePlayAgainClick }) {
   const router = useRouter();
+  const [currentRound, setCurrentRound] = useState(1);
 
   const points1 = parseInt(router.query?.points1 ?? 0);
 
