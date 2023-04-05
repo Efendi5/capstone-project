@@ -8,13 +8,8 @@ import { useState } from "react";
 
 export default function ResultList({ handlePlayAgainClick }) {
   const router = useRouter();
-  const [points, setPoints] = useState([0, 0, 0]);
 
-  const handlePointsUpdate = (newPoints) => {
-    setPoints(newPoints);
-  };
-
-  const points1 = router.query.points1 ? parseInt(router.query.points1) : null;
+  const points1 = parseInt(router.query?.points1 ?? 0);
 
   return (
     <StyledForm>
@@ -23,18 +18,8 @@ export default function ResultList({ handlePlayAgainClick }) {
         <strong>Ergebnis</strong>
       </StyledParagraph>
       <Header />
-      {points1 !== null && (
-        <Result
-          points={[points1, 0, 0]}
-          currentRound={1}
-          onPointsUpdate={(points) => handlePointsUpdate(points, 1)}
-        />
-      )}
-      <PlayAgainButton
-        onklick={handlePlayAgainClick}
-        setPoints={setPoints}
-        points={points}
-      />
+      {points1 && <Result points={points1} currentRound={1} />}
+      <PlayAgainButton onClick={handlePlayAgainClick} />
     </StyledForm>
   );
 }

@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
-export default function PlayAgainButton({ setPoints, points }) {
+export default function PlayAgainButton() {
   const { push } = useRouter();
 
   const handlePlayAgainClick = () => {
-    setPoints([points[0], 0, 0]);
     push("/");
   };
 
