@@ -1,16 +1,13 @@
+import { FaStar } from "react-icons/fa";
 import styled from "styled-components";
 
 export default function UserPoints({ points }) {
-  const pointString =
-    points === 1 ? "point" : points === 0 || points > 1 ? "points" : "point";
-
+  const starArray = [...Array(points)].map((_, i) => (
+    <FaStar key={i} color="#ffd700" />
+  ));
   return (
     <>
-      <StyledPoints>
-        <strong>
-          {points} {pointString}
-        </strong>
-      </StyledPoints>
+      <StyledPoints>{starArray}</StyledPoints>
     </>
   );
 }

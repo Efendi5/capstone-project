@@ -114,6 +114,11 @@ export const StyledButton = styled.button`
   cursor: pointer;
   margin-block: 5px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
 
   &.correct {
     background-color: green;

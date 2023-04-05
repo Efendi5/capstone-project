@@ -40,9 +40,10 @@ export const StyledParagraph = styled.p`
   font-size: 18px;
   margin-top: 10px;
   max-width: 400px;
+  width: 50%;
   margin: 15px;
   padding: 16px;
-  background: #597580;
+  background: linear-gradient(45deg, #597580, #3c5a6b);
   border-radius: 15px;
   color: white;
 

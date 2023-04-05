@@ -34,28 +34,30 @@ const StyledDiv = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin: 30px;
+  margin: 15px;
+  background-color: #cfdfe6;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 `;
-
 const Row = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 90%;
   margin: 15px;
-  margin-bottom: 2px;
+  margin-bottom: 8px;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.5);
-  padding: 8px;
+  padding: 6px;
+  font-family: "Montserrat", sans-serif;
 `;
-
 const RoundNumber = styled.p`
   margin: 0;
   font-size: 22px;
   font-weight: bold;
   color: white;
-  padding: 3px;
-  border-radius: 40%;
-  background-color: black;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: #5d5d5d;
 `;
