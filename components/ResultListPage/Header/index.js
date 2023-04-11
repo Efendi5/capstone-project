@@ -9,7 +9,7 @@ export default function Header() {
         <User name="User1" aria-label="Smiley" emoji="😁" />
       </User1Container>
       <User2Container>
-        <User2 name="User2" aria-label="Smiley" emoji="😁" />
+        <User2 name="User2" aria-label="Smiley" emoji="😎" />
       </User2Container>
     </StyledDiv>
   );

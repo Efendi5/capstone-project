@@ -5,22 +5,45 @@ import Result from "../../components/ResultListPage/Result";
 import PlayAgainButton from "../../components/ResultListPage/PlayAgainButton";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import TotalPoints from "../../components/ResultListPage/TotalPoints";
 
-export default function ResultList({ handlePlayAgainClick }) {
+export default function ResultList({ currentRound, setCurrentRound }) {
   const router = useRouter();
-  const [currentRound, setCurrentRound] = useState(1);
+  const [totalPoints1, setTotalPoints1] = useState(0);
+  const [totalPoints2, setTotalPoints2] = useState(0);
+  const [roundPoints, setRoundPoints] = useState({});
 
   const points1 = parseInt(router.query?.points1 ?? 0);
+  const points2 = parseInt(router.query?.points2 ?? 0);
 
   return (
     <StyledForm>
-      <MainMenu />
+      <MainMenu currentRound={currentRound} />
       <StyledParagraph>
         <strong>Ergebnis</strong>
       </StyledParagraph>
+      <TotalPoints
+        totalPoints1={totalPoints1}
+        totalPoints2={totalPoints2}
+        currentRound={currentRound}
+      />
       <Header />
-      {points1 && <Result points={points1} currentRound={1} />}
-      <PlayAgainButton onClick={handlePlayAgainClick} />
+      <Result
+        points1={points1}
+        points2={points2}
+        currentRound={currentRound}
+        setTotalPoints1={setTotalPoints1}
+        totalPoints1={totalPoints1}
+        setTotalPoints2={setTotalPoints2}
+        totalPoints2={totalPoints2}
+        roundPoints={roundPoints}
+        setRoundPoints={setRoundPoints}
+      />
+      <PlayAgainButton
+        currentRound={currentRound}
+        setCurrentRound={setCurrentRound}
+        setRoundPoints={setRoundPoints}
+      />
     </StyledForm>
   );
 }

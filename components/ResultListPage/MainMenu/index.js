@@ -1,8 +1,12 @@
 import styled from "styled-components";
 import Link from "next/link";
 
-export default function MainMenu() {
-  return <StyledLink href="/MainMenu">⬅</StyledLink>;
+export default function MainMenu({ currentRound }) {
+  if (currentRound === 3) {
+    return <StyledLink href="/MainMenu">⬅</StyledLink>;
+  } else {
+    return null;
+  }
 }
 
 export const StyledLink = styled.a`

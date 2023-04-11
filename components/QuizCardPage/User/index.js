@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import UserPoints from "../UserPoints";
 
-export default function User({ points, name, emoji }) {
+export default function User({ points1, name, emoji }) {
   return (
     <>
       <StyledDiv>
@@ -9,7 +9,7 @@ export default function User({ points, name, emoji }) {
         <strong>
           <StyledName>{name}</StyledName>
         </strong>
-        <UserPoints points={points} />
+        <UserPoints points1={points1} />
       </StyledDiv>
     </>
   );

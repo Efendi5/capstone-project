@@ -5,11 +5,11 @@ import User2 from "../User2";
 export default function Header({ points1, points2 }) {
   return (
     <StyledDiv>
-      <User name="User1" aria-label="Smiley" emoji="😁" points={points1} />
+      <User name="User1" aria-label="Smiley" emoji="😁" points1={points1} />
       <StyledHeader>
         <strong>Battle Quiz</strong>
       </StyledHeader>
-      <User2 name="User2" aria-label="Smiley" emoji="😎" points={points2} />
+      <User2 name="User2" aria-label="Smiley" emoji="😎" points2={points2} />
     </StyledDiv>
   );
 }

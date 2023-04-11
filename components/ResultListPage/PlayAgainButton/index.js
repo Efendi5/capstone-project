@@ -1,18 +1,31 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
-export default function PlayAgainButton({}) {
-  const { push } = useRouter();
+export default function PlayAgainButton({
+  currentRound,
+  setCurrentRound,
+  setRoundPoints,
+}) {
+  const router = useRouter();
 
   const handlePlayAgainClick = () => {
-    push("/");
+    if (currentRound < 3) {
+      setCurrentRound((prevCurrentRound) => prevCurrentRound + 1);
+      setRoundPoints({});
+      router.push("/");
+    }
   };
 
-  return (
-    <StyledButtonPlayAgain onClick={handlePlayAgainClick} type="button">
-      Spielen
-    </StyledButtonPlayAgain>
-  );
+  if (currentRound < 3) {
+    return (
+      <StyledButtonPlayAgain onClick={handlePlayAgainClick} type="button">
+        Spielen
+      </StyledButtonPlayAgain>
+    );
+  } else {
+    return null;
+  }
 }
 
 export const StyledButtonPlayAgain = styled.button`
@@ -27,7 +40,7 @@ export const StyledButtonPlayAgain = styled.button`
   color: white;
   font-size: 16px;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 20px;
   transition: all 0.2s ease-in-out;
 
