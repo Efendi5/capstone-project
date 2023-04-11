@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import UserPoints from "../../QuizCardPage/UserPoints";
 import { useState, useEffect } from "react";
+import useLocalStorageState from "use-local-storage-state";
 
 export default function Result({
   points1,
@@ -11,25 +12,43 @@ export default function Result({
   roundPoints,
   setRoundPoints,
 }) {
-  const round1Points1 = localStorage.getItem("User1-round1") || 0;
-  const round1Points2 = localStorage.getItem("User2-round1") || 0;
-  const round2Points1 = localStorage.getItem("User1-round2") || 0;
-  const round2Points2 = localStorage.getItem("User2-round2") || 0;
-  const round3Points1 = localStorage.getItem("User1-round3") || 0;
-  const round3Points2 = localStorage.getItem("User2-round3") || 0;
+  const [round1Points1, setRound1Points1] = useLocalStorageState(
+    "User1-round1",
+    0
+  );
+  const [round1Points2, setRound1Points2] = useLocalStorageState(
+    "User2-round1",
+    0
+  );
+  const [round2Points1, setRound2Points1] = useLocalStorageState(
+    "User1-round2",
+    0
+  );
+  const [round2Points2, setRound2Points2] = useLocalStorageState(
+    "User2-round2",
+    0
+  );
+  const [round3Points1, setRound3Points1] = useLocalStorageState(
+    "User1-round3",
+    0
+  );
+  const [round3Points2, setRound3Points2] = useLocalStorageState(
+    "User2-round3",
+    0
+  );
 
   useEffect(() => {
     if (currentRound === 1) {
-      localStorage.setItem("User1-round1", points1);
-      localStorage.setItem("User2-round1", points2);
+      setRound1Points1(points1);
+      setRound1Points2(points2);
     }
     if (currentRound === 2) {
-      localStorage.setItem("User1-round2", points1);
-      localStorage.setItem("User2-round2", points2);
+      setRound2Points1(points1);
+      setRound2Points2(points2);
     }
     if (currentRound === 3) {
-      localStorage.setItem("User1-round3", points1);
-      localStorage.setItem("User2-round3", points2);
+      setRound3Points1(points1);
+      setRound3Points2(points2);
     }
 
     const totalPoints1 = {
