@@ -1,10 +1,10 @@
 import { FaStar } from "react-icons/fa";
 import styled from "styled-components";
 
-export default function UserPoints({ points1, points2 }) {
+export default function UserPoints({ points }) {
   const starIcons = [];
 
-  for (let i = 0; i < points1; i++) {
+  for (let i = 0; i < points; i++) {
     starIcons.push(<FaStar key={i} />);
   }
 

@@ -9,17 +9,16 @@ export default function PlayAgainButton({
 }) {
   const router = useRouter();
 
-  const handlePlayAgainClick = () => {
+  const onHandleCurrentRound = () => {
     if (currentRound < 3) {
       setCurrentRound((prevCurrentRound) => prevCurrentRound + 1);
-      setRoundPoints({});
       router.push("/");
     }
   };
 
   if (currentRound < 3) {
     return (
-      <StyledButtonPlayAgain onClick={handlePlayAgainClick} type="button">
+      <StyledButtonPlayAgain onClick={onHandleCurrentRound} type="button">
         Spielen
       </StyledButtonPlayAgain>
     );

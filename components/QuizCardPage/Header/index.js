@@ -1,15 +1,12 @@
 import styled from "styled-components";
 import User from "../User";
-import User2 from "../User2";
 
 export default function Header({ points1, points2 }) {
   return (
     <StyledDiv>
-      <User name="User1" aria-label="Smiley" emoji="😁" points1={points1} />
-      <StyledHeader>
-        <strong>Battle Quiz</strong>
-      </StyledHeader>
-      <User2 name="User2" aria-label="Smiley" emoji="😎" points2={points2} />
+      <User name="User1" aria-label="Smiley" emoji="😁" points={points1} />
+      <StyledHeader>Battle Quiz</StyledHeader>
+      <User name="User2" aria-label="Smiley" emoji="😎" points={points2} />
     </StyledDiv>
   );
 }
@@ -24,6 +21,7 @@ export const StyledHeader = styled.h1`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: pulse 2s infinite;
+  font-weight: bold;
 
   @keyframes pulse {
     0% {

@@ -19,9 +19,7 @@ export default function ResultList({ currentRound, setCurrentRound }) {
   return (
     <StyledForm>
       <MainMenu currentRound={currentRound} />
-      <StyledParagraph>
-        <strong>Ergebnis</strong>
-      </StyledParagraph>
+      <StyledParagraph>Ergebnis</StyledParagraph>
       <TotalPoints
         totalPoints1={totalPoints1}
         totalPoints2={totalPoints2}
@@ -69,6 +67,7 @@ export const StyledParagraph = styled.p`
   background: linear-gradient(45deg, #597580, #3c5a6b);
   border-radius: 15px;
   color: white;
+  font-weight: bold;
 
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 `;

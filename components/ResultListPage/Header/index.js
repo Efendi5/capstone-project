@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import User from "../../QuizCardPage/User";
-import User2 from "../../QuizCardPage/User2";
 
 export default function Header() {
   return (
@@ -9,7 +8,7 @@ export default function Header() {
         <User name="User1" aria-label="Smiley" emoji="😁" />
       </User1Container>
       <User2Container>
-        <User2 name="User2" aria-label="Smiley" emoji="😎" />
+        <User name="User2" aria-label="Smiley" emoji="😎" />
       </User2Container>
     </StyledDiv>
   );

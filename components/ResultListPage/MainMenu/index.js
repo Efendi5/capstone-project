@@ -3,7 +3,11 @@ import Link from "next/link";
 
 export default function MainMenu({ currentRound }) {
   if (currentRound === 3) {
-    return <StyledLink href="/MainMenu">⬅</StyledLink>;
+    return (
+      <StyledLink aria-label="Pfeil" href="/MainMenu">
+        ⬅
+      </StyledLink>
+    );
   } else {
     return null;
   }

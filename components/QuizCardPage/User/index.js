@@ -1,17 +1,13 @@
 import styled from "styled-components";
 import UserPoints from "../UserPoints";
 
-export default function User({ points1, name, emoji }) {
+export default function User({ points, name, emoji }) {
   return (
-    <>
-      <StyledDiv>
-        <StyledUser aria-label="Smiley">{emoji}</StyledUser>
-        <strong>
-          <StyledName>{name}</StyledName>
-        </strong>
-        <UserPoints points1={points1} />
-      </StyledDiv>
-    </>
+    <StyledDiv>
+      <StyledUser aria-label="Smiley">{emoji}</StyledUser>
+      <StyledName>{name}</StyledName>
+      <UserPoints points={points} />
+    </StyledDiv>
   );
 }
 
@@ -29,6 +25,7 @@ export const StyledName = styled.p`
   color: black;
   background-color: #f5f5f5;
   border-radius: 10px;
+  font-weight: bold;
 `;
 
 export const StyledDiv = styled.div`

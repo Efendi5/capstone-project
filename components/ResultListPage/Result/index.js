@@ -134,18 +134,16 @@ export default function Result({
   return (
     <StyledDiv>
       {currentRound > 0 &&
-        roundNumbers.map((roundNumber, index) => {
-          if (roundNumber.currentRound <= currentRound) {
-            return (
+        roundNumbers.map(
+          (roundNumber, index) =>
+            roundNumber.currentRound <= currentRound && (
               <Row key={roundNumber.currentRound}>
-                <UserPoints points1={[roundNumber.points1]} />
+                <UserPoints points={[roundNumber.points1]} />
                 <RoundNumber>{roundNumber.currentRound}</RoundNumber>
-                <UserPoints points2={[roundNumber.points2]} />
+                <UserPoints points={[roundNumber.points2]} />
               </Row>
-            );
-          }
-          return null;
-        })}
+            )
+        )}
     </StyledDiv>
   );
 }
