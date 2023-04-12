@@ -1,24 +1,18 @@
 import styled from "styled-components";
-import { useRouter } from "next/router";
+import Link from "next/link";
 
 export default function StartButton() {
-  const router = useRouter();
-
-  const onHandleStart = () => {
-    router.push({
-      pathname: "/Quiz",
-    });
-  };
   return (
-    <StyledStartButton type="button" onClick={onHandleStart}>
+    <StartLink href="/Quiz" alt="StartLink">
       Start
-    </StyledStartButton>
+    </StartLink>
   );
 }
 
-export const StyledStartButton = styled.button`
+export const StartLink = styled(Link)`
   display: block;
   justify-content: center;
+  align-items: center;
   width: 60%;
   text-align: center;
   max-width: 200px;
@@ -26,12 +20,13 @@ export const StyledStartButton = styled.button`
   background-color: green;
   border-radius: 20px;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
   cursor: pointer;
   margin-top: 120px;
   margin-bottom: 20px;
   font-weight: bold;
   transition: all 0.2s ease-in-out;
+  text-decoration: none;
 
   &:hover {
     background-color: darkgreen;

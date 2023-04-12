@@ -1,21 +1,21 @@
 import styled from "styled-components";
-import StartButton from "../../components/StartPage/StartButton";
-import HeaderStartPage from "../../components/StartPage/Header";
-import StartCard from "../../components/StartPage/QuizCardStart";
+import StartButton from "../../components/Start/StartButton";
+import StartCard from "../../components/Start/QuizCardStart";
+import Header from "../../components/QuizCardPage/Header";
 
 export default function StartPage() {
   return (
     <>
-      <StyledForm>
-        <HeaderStartPage />
+      <StyledSection>
+        <Header />
         <StartCard />
         <StartButton />
-      </StyledForm>
+      </StyledSection>
     </>
   );
 }
 
-export const StyledForm = styled.form`
+export const StyledSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
