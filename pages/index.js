@@ -1,9 +1,9 @@
-import QuizForm from "../components/QuizCardPage/QuizForm";
+import StartPage from "./StartPage";
 
 export default function Home() {
   return (
     <main>
-      <QuizForm />
+      <StartPage />
     </main>
   );
 }
