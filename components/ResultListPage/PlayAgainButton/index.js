@@ -12,7 +12,7 @@ export default function PlayAgainButton({
   const onHandleCurrentRound = () => {
     if (currentRound < 3) {
       setCurrentRound((prevCurrentRound) => prevCurrentRound + 1);
-      router.push("/Quiz");
+      router.push("/quiz");
     }
   };
 

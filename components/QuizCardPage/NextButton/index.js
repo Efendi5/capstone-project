@@ -32,7 +32,7 @@ export default function NextButton({
     if (currentQuestion && clickCounter === 2) {
       setClickCounter(0);
       router.push({
-        pathname: "/ResultList",
+        pathname: "/resultList",
         query: { points1 },
       });
     }

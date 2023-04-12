@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function StartButton() {
   return (
-    <StartLink href="/Quiz" alt="StartLink">
+    <StartLink href="/quiz" alt="StartLink">
       Start
     </StartLink>
   );
