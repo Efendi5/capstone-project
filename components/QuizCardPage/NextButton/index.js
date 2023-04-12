@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 export default function NextButton({
   isDisabled,
@@ -8,13 +9,31 @@ export default function NextButton({
   setTimeLeft,
   setIndex,
   setSelectedAnswer,
+  setClickCounter,
+  clickCounter,
+  points1,
+  currentQuestion,
 }) {
+  const router = useRouter();
+  const { query } = router;
+
   const handleNextClick = () => {
-    setIndex(index + 1);
+    if (index <= 1) {
+      setIndex(index + 1);
+    }
     setSelectedAnswer("");
     setIsDisabled(false);
     setIsTimerPaused(false);
     setTimeLeft(15);
+    setClickCounter(clickCounter + 1);
+
+    if (currentQuestion && clickCounter === 2) {
+      setClickCounter(0);
+      router.push({
+        pathname: "/ResultList",
+        query: { points1 },
+      });
+    }
   };
 
   return (
@@ -42,4 +61,9 @@ export const StyledButtonNext = styled.button`
   cursor: pointer;
   margin-top: 20px;
   margin-bottom: 20px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: darkgreen;
+  }
 `;

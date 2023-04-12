@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { questions } from "../../../db/data";
 
 export default function AnswerButtons({
   points1,
@@ -12,30 +11,41 @@ export default function AnswerButtons({
   setIsTimerPaused,
   timeLeft,
   index,
+  currentQuestion,
 }) {
   const [answerIndex, setAnswerIndex] = useState(null);
-  const currentQuestion = questions[index];
+  const [isAnswered, setIsAnswered] = useState(false);
 
   const handleAnswerClick = (index, answer) => {
+    if (isDisabled) {
+      return;
+    }
+
     setAnswerIndex(index);
     setIsDisabled(true);
     setIsTimerPaused(true);
+
     if (answer === currentQuestion.correctAnswer) {
       setPoints1(points1 + 1);
+      setIsAnswered(true);
       setSelectedAnswer("correct");
     } else {
       setSelectedAnswer("incorrect");
     }
   };
 
-  const handleTimer = (index) => {
+  const handleTimer = () => {
+    const correctAnswerIndex = currentQuestion.answers.indexOf(
+      currentQuestion.correctAnswer
+    );
     if (timeLeft === 0) {
-      setAnswerIndex(index);
+      setAnswerIndex(correctAnswerIndex);
       setSelectedAnswer("correct");
     }
   };
+
   useEffect(() => {
-    handleTimer(0);
+    handleTimer();
   }, [timeLeft]);
 
   return (
@@ -103,6 +113,11 @@ export const StyledButton = styled.button`
   cursor: pointer;
   margin-block: 5px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
 
   &.correct {
     background-color: green;
