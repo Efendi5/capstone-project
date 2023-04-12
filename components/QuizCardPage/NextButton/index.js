@@ -18,6 +18,8 @@ export default function NextButton({
   const { query } = router;
 
   const handleNextClick = () => {
+    // const newIndex = getRandomIndex();
+    // setIndex(newIndex);
     if (index <= 1) {
       setIndex(index + 1);
     }

@@ -17,13 +17,18 @@ export default function QuizForm() {
   const [index, setIndex] = useState(0);
   const [clickCounter, setClickCounter] = useState(0);
   const question = questions[index] ? questions[index].question : "";
+  // const [index, setIndex] = useState(getRandomIndex());
   const currentQuestion = questions[index];
+
+  // function getRandomIndex() {
+  //   return Math.floor(Math.random() * questions.length);
+  // }
 
   return (
     <>
       <Header points1={points1} points2={points2}></Header>
       <StyledForm>
-        <QuizCard questions={question}></QuizCard>
+        <QuizCard questions={currentQuestion.question}></QuizCard>
         <Timeline
           isTimerPaused={isTimerPaused}
           setIsDisabled={setIsDisabled}
