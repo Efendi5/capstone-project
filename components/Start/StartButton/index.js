@@ -2,17 +2,11 @@ import styled from "styled-components";
 import Link from "next/link";
 
 export default function StartButton() {
-  return (
-    <StartLink href="/quiz" alt="StartLink">
-      Start
-    </StartLink>
-  );
+  return <StartLink href="/quiz">Start</StartLink>;
 }
 
 export const StartLink = styled(Link)`
   display: block;
-  justify-content: center;
-  align-items: center;
   width: 60%;
   text-align: center;
   max-width: 200px;

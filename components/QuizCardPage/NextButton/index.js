@@ -38,7 +38,6 @@ export default function NextButton({
       });
     }
   };
-  console.log(handleNextClick);
   return (
     <StyledButtonNext
       block={isDisabled && "block"}
