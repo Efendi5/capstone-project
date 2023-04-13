@@ -15,23 +15,23 @@ export default function QuizForm() {
   const [isDisabled, setIsDisabled] = useState(false);
   const [isTimerPaused, setIsTimerPaused] = useState(false);
   const [timeLeft, setTimeLeft] = useState(20);
-  // const [index, setIndex] = useState(0);
   const [clickCounter, setClickCounter] = useState(0);
-  // const question = questions[index] ? questions[index].question : "";
-  const [index, setIndex] = useState(0);
-  // const currentQuestion = questions[index];
+  const [index, setIndex] = useState();
 
   useEffect(() => {
-    setIndex(Math.floor(Math.random() * questions.length));
+    const randomIndex = Math.floor(Math.random() * (questions.length - 1));
+    setIndex(randomIndex);
   }, []);
-
   return (
     <>
       <Header points1={points1} points2={points2}></Header>
       <StyledForm>
         {index && (
           <>
-            <QuizCard questions={questions[index]}></QuizCard>
+            <QuizCard
+              key={questions[index].id}
+              question={questions[index].question}
+            ></QuizCard>
             <Timeline
               isTimerPaused={isTimerPaused}
               setIsDisabled={setIsDisabled}
