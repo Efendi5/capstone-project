@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
+import { questions } from "../../../db/data";
 
 export default function NextButton({
   isDisabled,
@@ -18,8 +19,10 @@ export default function NextButton({
   const { query } = router;
 
   const handleNextClick = () => {
-    if (index <= 1) {
+    if (index + 1 < questions.length) {
       setIndex(index + 1);
+    } else {
+      setIndex(Math.floor(Math.random() * (questions.length - 1)));
     }
     setSelectedAnswer("");
     setIsDisabled(false);
@@ -30,12 +33,11 @@ export default function NextButton({
     if (currentQuestion && clickCounter === 2) {
       setClickCounter(0);
       router.push({
-        pathname: "/ResultList",
+        pathname: "/resultList",
         query: { points1 },
       });
     }
   };
-
   return (
     <StyledButtonNext
       block={isDisabled && "block"}

@@ -6,6 +6,7 @@ import Header from "../Header";
 import NextButton from "../NextButton";
 import { useState } from "react";
 import { questions } from "../../../db/data";
+import { useEffect } from "react";
 
 export default function QuizForm() {
   const [points1, setPoints1] = useState(0);
@@ -14,48 +15,57 @@ export default function QuizForm() {
   const [isDisabled, setIsDisabled] = useState(false);
   const [isTimerPaused, setIsTimerPaused] = useState(false);
   const [timeLeft, setTimeLeft] = useState(20);
-  const [index, setIndex] = useState(0);
   const [clickCounter, setClickCounter] = useState(0);
-  const question = questions[index] ? questions[index].question : "";
-  const currentQuestion = questions[index];
+  const [index, setIndex] = useState();
 
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * (questions.length - 1));
+    setIndex(randomIndex);
+  }, []);
   return (
     <>
       <Header points1={points1} points2={points2}></Header>
       <StyledForm>
-        <QuizCard questions={question}></QuizCard>
-        <Timeline
-          isTimerPaused={isTimerPaused}
-          setIsDisabled={setIsDisabled}
-          timeLeft={timeLeft}
-          setTimeLeft={setTimeLeft}
-        />
-        <AnswerButtons
-          points1={points1}
-          setPoints1={setPoints1}
-          selectedAnswer={selectedAnswer}
-          setSelectedAnswer={setSelectedAnswer}
-          isDisabled={isDisabled}
-          setIsDisabled={setIsDisabled}
-          setIsTimerPaused={setIsTimerPaused}
-          timeLeft={timeLeft}
-          index={index}
-          currentQuestion={currentQuestion}
-        ></AnswerButtons>
-        <NextButton
-          isDisabled={isDisabled}
-          setSelectedAnswer={setSelectedAnswer}
-          index={index}
-          setIndex={setIndex}
-          setIsDisabled={setIsDisabled}
-          setIsTimerPaused={setIsTimerPaused}
-          setTimeLeft={setTimeLeft}
-          setClickCounter={setClickCounter}
-          clickCounter={clickCounter}
-          points1={points1}
-          setPoints1={setPoints1}
-          currentQuestion={currentQuestion}
-        ></NextButton>
+        {index && (
+          <>
+            <QuizCard
+              key={questions[index].id}
+              question={questions[index].question}
+            ></QuizCard>
+            <Timeline
+              isTimerPaused={isTimerPaused}
+              setIsDisabled={setIsDisabled}
+              timeLeft={timeLeft}
+              setTimeLeft={setTimeLeft}
+            />
+            <AnswerButtons
+              points1={points1}
+              setPoints1={setPoints1}
+              selectedAnswer={selectedAnswer}
+              setSelectedAnswer={setSelectedAnswer}
+              isDisabled={isDisabled}
+              setIsDisabled={setIsDisabled}
+              setIsTimerPaused={setIsTimerPaused}
+              timeLeft={timeLeft}
+              index={index}
+              currentQuestion={questions[index]}
+            ></AnswerButtons>
+            <NextButton
+              isDisabled={isDisabled}
+              setSelectedAnswer={setSelectedAnswer}
+              index={index}
+              setIndex={setIndex}
+              setIsDisabled={setIsDisabled}
+              setIsTimerPaused={setIsTimerPaused}
+              setTimeLeft={setTimeLeft}
+              setClickCounter={setClickCounter}
+              clickCounter={clickCounter}
+              points1={points1}
+              setPoints1={setPoints1}
+              currentQuestion={questions[index]}
+            ></NextButton>
+          </>
+        )}
       </StyledForm>
     </>
   );
