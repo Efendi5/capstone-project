@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function MainMenu({ currentRound }) {
   if (currentRound === 3) {
     return (
-      <StyledLink aria-label="Pfeil" href="/MainMenu">
+      <StyledLink aria-label="Pfeil" href="/mainMenu">
         ⬅
       </StyledLink>
     );
@@ -13,7 +13,7 @@ export default function MainMenu({ currentRound }) {
   }
 }
 
-export const StyledLink = styled.a`
+export const StyledLink = styled(Link)`
   cursor: pointer;
   font-size: 40px;
   position: relative;
