@@ -21,10 +21,10 @@ export const StyledUser = styled.div`
 export const StyledName = styled.p`
   font-size: 18px;
   margin-top: 0;
-  padding: 5px;
+  padding: 2px;
   color: black;
-  background-color: #f5f5f5;
-  border-radius: 10px;
+  background-color: rgba(245, 245, 245, 0.5);
+  border-radius: 5px;
   font-weight: bold;
 `;
 

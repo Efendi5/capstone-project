@@ -1,16 +1,25 @@
-import { StyledButton } from ".";
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import AnswerButtons from ".";
 
-describe("StyledButton component", () => {
-  it("should call onClick handler when clicked with the correct answer", () => {
-    const onClick = jest.fn();
-    const correctAnswer = "Correct Answer";
-
-    render(<StyledButton onClick={onClick}>{correctAnswer}</StyledButton>);
-
-    const correctAnswerButton = screen.getByText(correctAnswer);
-
-    fireEvent.click(correctAnswerButton);
-    expect(onClick).toHaveBeenCalledTimes(1);
-  });
+test("renders AnswerButtons component without crashing", async () => {
+  render(
+    <AnswerButtons
+      points1={0}
+      setPoints1={() => {}}
+      selectedAnswer=""
+      setSelectedAnswer={() => {}}
+      isDisabled={false}
+      setIsDisabled={() => {}}
+      setIsTimerPaused={() => {}}
+      timeLeft={30}
+      index={0}
+      currentQuestion={{
+        question: "What is the capital of France?",
+        answers: ["Paris", "Madrid", "Berlin", "London"],
+        correctAnswer: "Paris",
+      }}
+    />
+  );
+  const answerButtons = screen.getAllByRole("button", { type: "button" });
+  expect(answerButtons).toHaveLength(4);
 });

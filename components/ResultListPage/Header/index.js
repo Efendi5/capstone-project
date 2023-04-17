@@ -8,7 +8,7 @@ export default function Header({ nickname }) {
         <User name={nickname} aria-label="Smiley" emoji="😁" />
       </User1Container>
       <User2Container>
-        <User name="User2" aria-label="Smiley" emoji="😎" />
+        <User name="Jonny" aria-label="Smiley" emoji="😎" />
       </User2Container>
     </StyledDiv>
   );

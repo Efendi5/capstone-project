@@ -1,10 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { StyledHeader } from ".";
+import Header from ".";
 
-describe("StyledHeader component", () => {
-  it("should render the correct text", () => {
-    render(<StyledHeader>Battle Quiz</StyledHeader>);
-    const headerElement = screen.getByText(/Battle Quiz/i);
-    expect(headerElement).toBeInTheDocument();
-  });
+test("renders header component without crashing", async () => {
+  render(<Header points1={0} points2={0} nickname="test" />);
+  const header = screen.getByText(/Battle Quiz/i);
+  expect(header).toBeInTheDocument();
 });
