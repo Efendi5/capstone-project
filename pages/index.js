@@ -1,22 +1,5 @@
-import Header from "../components/QuizCardPage/Header";
-import StartCard from "../components/Start/QuizCardStart";
-import StartButton from "../components/Start/StartButton";
-import styled from "styled-components";
+import SignUp from "./signUp";
 
-export default function StartPage() {
-  return (
-    <StyledSection>
-      <Header />
-      <StartCard />
-      <StartButton />
-    </StyledSection>
-  );
+export default function Starten({ nickname, setNickname }) {
+  return <SignUp nickname={nickname} setNickname={setNickname} />;
 }
-
-export const StyledSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  flex-wrap: wrap;
-`;

@@ -5,7 +5,7 @@ export default function MainMenu({ currentRound }) {
   if (currentRound === 3) {
     return (
       <StyledLink aria-label="Pfeil" href="/mainMenu">
-        ⬅
+        &larr;
       </StyledLink>
     );
   } else {
@@ -15,7 +15,7 @@ export default function MainMenu({ currentRound }) {
 
 export const StyledLink = styled(Link)`
   cursor: pointer;
-  font-size: 40px;
+  font-size: 28px;
   position: relative;
   text-decoration: none;
   margin-right: auto;

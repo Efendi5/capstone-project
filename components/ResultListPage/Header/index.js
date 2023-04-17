@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import User from "../../QuizCardPage/User";
 
-export default function Header() {
+export default function Header({ nickname }) {
   return (
     <StyledDiv>
       <User1Container>
-        <User name="User1" aria-label="Smiley" emoji="😁" />
+        <User name={nickname} aria-label="Smiley" emoji="😁" />
       </User1Container>
       <User2Container>
         <User name="User2" aria-label="Smiley" emoji="😎" />

@@ -3,11 +3,11 @@ import { StyledHeader } from "../../components/QuizCardPage/Header";
 import Navbar from "../../components/MainMenuPage/Navbar";
 import User from "../../components/QuizCardPage/User";
 
-export default function MainMenu() {
+export default function MainMenu({ nickname }) {
   return (
     <StyledSection>
       <StyledHeader>Battle Quiz</StyledHeader>
-      <User name="User1" aria-label="Smiley" emoji="😁" />
+      <User name={nickname} aria-label="Smiley" emoji="😁" />
       <StyledContainer>
         <Navbar />
       </StyledContainer>

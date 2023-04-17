@@ -2,7 +2,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 export default function PlayButton() {
-  return <PlayLink href="/">Spielen</PlayLink>;
+  return <PlayLink href="/startQuiz">Spielen</PlayLink>;
 }
 
 const PlayLink = styled(Link)`

@@ -7,7 +7,11 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import TotalPoints from "../../components/ResultListPage/TotalPoints";
 
-export default function ResultList({ currentRound, setCurrentRound }) {
+export default function ResultList({
+  currentRound,
+  setCurrentRound,
+  nickname,
+}) {
   const router = useRouter();
   const [totalPoints1, setTotalPoints1] = useState(0);
   const [totalPoints2, setTotalPoints2] = useState(0);
@@ -25,7 +29,7 @@ export default function ResultList({ currentRound, setCurrentRound }) {
         totalPoints2={totalPoints2}
         currentRound={currentRound}
       />
-      <Header />
+      <Header nickname={nickname} />
       <Result
         points1={points1}
         points2={points2}
