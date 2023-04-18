@@ -1,16 +1,28 @@
-import { StyledButtonNext } from ".";
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import NextButton from ".";
 
-describe("StyledButtonNext component", () => {
-  it("should call onClick to move to the next page", () => {
-    const onClick = jest.fn();
-    const moveNextPage = "Next";
+jest.mock("next/router", () => ({
+  useRouter: () => ({
+    push: jest.fn(),
+  }),
+}));
 
-    render(
-      <StyledButtonNext onClick={onClick}>{moveNextPage}</StyledButtonNext>
-    );
-
-    fireEvent.click(screen.getByText("Next"));
-    expect(onClick).toHaveBeenCalledTimes(1);
-  });
+test("renders NextButton component", async () => {
+  render(
+    <NextButton
+      isDisabled={true}
+      index={0}
+      setIsDisabled={() => {}}
+      setIsTimerPaused={() => {}}
+      setTimeLeft={() => {}}
+      setIndex={() => {}}
+      setSelectedAnswer={() => {}}
+      setClickCounter={() => {}}
+      clickCounter={0}
+      points1={0}
+      currentQuestion={{}}
+    />
+  );
+  const nextButton = screen.queryByRole("button", { name: /weiter/i });
+  expect(nextButton).toBeInTheDocument();
 });

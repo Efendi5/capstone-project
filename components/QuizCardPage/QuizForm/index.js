@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import QuizCard from "../QuizCard";
 import Timeline from "../Timeline";
-import AnswerButtons from "../AnswerButton";
+import AnswerButtons from "../AnswerButtons";
 import Header from "../Header";
 import NextButton from "../NextButton";
 import { useState } from "react";
 import { questions } from "../../../db/data";
 import { useEffect } from "react";
 
-export default function QuizForm() {
+export default function QuizForm({ nickname }) {
   const [points1, setPoints1] = useState(0);
   const [points2, setPoints2] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState("");
@@ -24,7 +24,7 @@ export default function QuizForm() {
   }, []);
   return (
     <>
-      <Header points1={points1} points2={points2}></Header>
+      <Header points1={points1} points2={points2} nickname={nickname}></Header>
       <StyledForm>
         {index && (
           <>

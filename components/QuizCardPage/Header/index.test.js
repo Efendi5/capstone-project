@@ -1,10 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import { StyledHeader } from ".";
+import Header from ".";
 
-describe("StyledHeader component", () => {
-  it("should render the correct text", () => {
-    render(<StyledHeader>Battle Quiz</StyledHeader>);
-    const headerElement = screen.getByText(/Battle Quiz/i);
-    expect(headerElement).toBeInTheDocument();
-  });
+test("renders header component", () => {
+  render(<Header nickname="John" points="3" />);
+  const header = screen.getByText(/Battle Quiz/i);
+  const userName = screen.getByText("John");
+  const pointsElements = screen.getAllByTestId("user points");
+  expect(header).toBeInTheDocument();
+  expect(userName).toBeInTheDocument();
+  expect(pointsElements).toHaveLength(2);
 });

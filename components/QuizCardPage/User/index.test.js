@@ -1,10 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import { StyledUser } from ".";
+import User from ".";
 
-describe("StyledUser components", () => {
-  it("should render the correct text", () => {
-    render(<StyledUser>😄</StyledUser>);
-    const user1Element = screen.getByText("😄");
-    expect(user1Element).toBeInTheDocument();
-  });
+test("renders User component", () => {
+  render(<User name="John" emoji="😀" points={10} />);
+  const userName = screen.getByText("John");
+  const pointsElement = screen.getByTestId("user points");
+  const smiley = screen.getByText("😀");
+  expect(userName).toBeInTheDocument();
+  expect(pointsElement).toBeInTheDocument();
+  expect(smiley).toBeInTheDocument();
 });

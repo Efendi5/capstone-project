@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import User from "../User";
 
-export default function Header({ points1, points2 }) {
+export default function Header({ points1, points2, nickname }) {
   return (
     <StyledDiv>
-      <User name="User1" aria-label="Smiley" emoji="😁" points={points1} />
+      <User name={nickname} aria-label="Smiley" emoji="😁" points={points1} />
       <StyledHeader>Battle Quiz</StyledHeader>
-      <User name="User2" aria-label="Smiley" emoji="😎" points={points2} />
+      <User name="Jonny" aria-label="Smiley" emoji="😎" points={points2} />
     </StyledDiv>
   );
 }
