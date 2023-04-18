@@ -15,7 +15,6 @@ export const StyledUser = styled.div`
   font-size: 30px;
   margin-top: 5px;
   padding-top: 5px;
-  padding: 5px;
 `;
 
 export const StyledName = styled.p`

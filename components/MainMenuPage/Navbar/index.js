@@ -4,7 +4,7 @@ import PlayButton from "../NavbarComponents/Play";
 export default function Navbar() {
   return (
     <StyledNav>
-      <StyledUl>
+      <StyledUl role="list">
         <StyledLi>
           <PlayButton />
         </StyledLi>

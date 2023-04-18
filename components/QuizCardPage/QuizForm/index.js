@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import QuizCard from "../QuizCard";
 import Timeline from "../Timeline";
-import AnswerButtons from "../AnswerButton";
+import AnswerButtons from "../AnswerButtons";
 import Header from "../Header";
 import NextButton from "../NextButton";
 import { useState } from "react";

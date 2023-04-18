@@ -7,17 +7,17 @@ import { useRouter } from "next/router";
 export default function SignUp({ nickname, setNickname }) {
   const router = useRouter();
 
-  const onHandleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     router.push({
-      pathname: "/mainMenu",
+      pathname: "/main-menu",
     });
   };
   return (
     <>
       <StyledContainer>
         <StyledHeader>Battle Quiz</StyledHeader>
-        <StyledForm onSubmit={onHandleSubmit}>
+        <StyledForm onSubmit={handleSubmit}>
           <StyledH1>Choose your Nickname</StyledH1>
           <StyledHr></StyledHr>
           <UserName nickname={nickname} setNickname={setNickname} />

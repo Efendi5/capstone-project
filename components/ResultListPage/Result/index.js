@@ -9,7 +9,6 @@ export default function Result({
   setTotalPoints1,
   currentRound,
   setTotalPoints2,
-  roundPoints,
   setRoundPoints,
 }) {
   const [round1Points1, setRound1Points1] = useLocalStorageState(

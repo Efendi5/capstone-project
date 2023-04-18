@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export default function UserName({ nickname, setNickname }) {
-  const onHandleNicknameChange = (event) => {
+  const handleNicknameChange = (event) => {
     setNickname(event.target.value);
   };
 
@@ -12,7 +12,7 @@ export default function UserName({ nickname, setNickname }) {
         placeholder="Nickname"
         defaultValue={nickname}
         required
-        onChange={onHandleNicknameChange}
+        onChange={handleNicknameChange}
       />
     </StyledLabelNickName>
   );

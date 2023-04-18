@@ -1,12 +1,7 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
-import { useState } from "react";
 
-export default function PlayAgainButton({
-  currentRound,
-  setCurrentRound,
-  setRoundPoints,
-}) {
+export default function PlayAgainButton({ currentRound, setCurrentRound }) {
   const router = useRouter();
 
   const onHandleCurrentRound = () => {

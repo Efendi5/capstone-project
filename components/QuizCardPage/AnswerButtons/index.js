@@ -10,7 +10,6 @@ export default function AnswerButtons({
   setIsDisabled,
   setIsTimerPaused,
   timeLeft,
-  index,
   currentQuestion,
 }) {
   const [answerIndex, setAnswerIndex] = useState(null);

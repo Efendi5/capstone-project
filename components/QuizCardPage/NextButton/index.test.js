@@ -7,10 +7,10 @@ jest.mock("next/router", () => ({
   }),
 }));
 
-test("renders NextButton component without crashing", async () => {
+test("renders NextButton component", async () => {
   render(
     <NextButton
-      isDisabled={false}
+      isDisabled={true}
       index={0}
       setIsDisabled={() => {}}
       setIsTimerPaused={() => {}}
@@ -24,5 +24,5 @@ test("renders NextButton component without crashing", async () => {
     />
   );
   const nextButton = screen.queryByRole("button", { name: /weiter/i });
-  expect(nextButton).not.toBeInTheDocument();
+  expect(nextButton).toBeInTheDocument();
 });
