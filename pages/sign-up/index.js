@@ -4,7 +4,7 @@ import SubmitButton from "../../components/SignUpPage/SubmitButton";
 import UserName from "../../components/SignUpPage/UserName";
 import { useRouter } from "next/router";
 
-export default function SignUp({ nickname, setNickname }) {
+export default function SignUp({ nickname, onAddNickname }) {
   const router = useRouter();
 
   const handleSubmit = (event) => {
@@ -20,7 +20,7 @@ export default function SignUp({ nickname, setNickname }) {
         <StyledForm onSubmit={handleSubmit}>
           <StyledH1>Choose your Nickname</StyledH1>
           <StyledHr></StyledHr>
-          <UserName nickname={nickname} setNickname={setNickname} />
+          <UserName nickname={nickname} onAddNickname={onAddNickname} />
           <SubmitButton nickname={nickname} />
         </StyledForm>
       </StyledContainer>

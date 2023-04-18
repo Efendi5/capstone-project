@@ -10,7 +10,7 @@ export default function UserPoints({ points }) {
 
   return (
     <>
-      <StyledPoints>{starIcons}</StyledPoints>
+      <StyledPoints data-testid="user points">{starIcons}</StyledPoints>
     </>
   );
 }

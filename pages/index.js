@@ -1,5 +1,5 @@
 import SignUp from "./sign-up";
 
-export default function Starten({ nickname, setNickname }) {
-  return <SignUp nickname={nickname} setNickname={setNickname} />;
+export default function Starten({ nickname, onAddNickname }) {
+  return <SignUp nickname={nickname} onAddNickname={onAddNickname} />;
 }

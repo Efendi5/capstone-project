@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export default function UserName({ nickname, setNickname }) {
+export default function UserName({ nickname, onAddNickname }) {
   const handleNicknameChange = (event) => {
-    setNickname(event.target.value);
+    onAddNickname(event.target.value);
   };
 
   return (
